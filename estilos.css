@@ -1,0 +1,1473 @@
+/* ==========================================================================
+   INVERSIONES MENDOZA PAN DE DIOS - ESTILOS PRINCIPALES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RESET Y CONFIGURACIÓN BASE
+   -------------------------------------------------------------------------- */
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#arriba {
+    scroll-margin-top: 0;
+}
+
+/* Compensación de anclas en el catálogo para no quedar tapado por el header fijo */
+#seccion-panes,
+#seccion-quesos,
+#seccion-charcuteria,
+.grupo-categoria {
+    scroll-margin-top: 90px;
+}
+
+/* Estilos base del cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fcf8f2;
+    color: #4a2e1b;
+    animation: aparecerPantalla 0.4s ease-out forwards;
+}
+
+/* Contenedor central que limita el ancho a 1000px y lo centra */
+.contenedor-principal {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Tarjeta blanca para agrupar contenidos en subpáginas */
+.contenedor-tarjeta,
+.bloque-texto-resena {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+}
+
+/* Formato justificado específico para la reseña histórica en Inicio */
+.bloque-texto-resena {
+    text-align: justify;
+}
+
+.bloque-texto-resena p {
+    text-indent: 5px;
+    margin-bottom: 15px;
+}
+
+.bloque-texto-resena p:last-child {
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. BARRA DE NAVEGACIÓN Y CABECERA (HEADER)
+   -------------------------------------------------------------------------- */
+.header-navegacion {
+    background-color: #8c5333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contenedor-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.texto-inversiones {
+    color: #f3eab8;
+    margin: 0 auto 0 20px;
+    text-align: left;
+}
+
+.texto-inversiones h3 {
+    margin: 0;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    white-space: nowrap;
+}
+
+/* Checkbox oculto y botón hamburguesa en escritorio */
+.menu-check {
+    display: none;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+/* Enlaces del menú superior */
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #fcf8f2;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1.05rem;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #FA8C3E;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FA8C3E;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.menu a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Resalta con línea amarilla la pestaña de la página actual y bloquea la recarga */
+#pagina-inicio .nav-inicio,
+#pagina-productos .nav-productos,
+#pagina-promociones .nav-promociones,
+#pagina-contacto .nav-contacto,
+#pagina-opiniones .nav-opiniones {
+    border-bottom: 2px solid #FFDB85;
+    font-weight: bold;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECCIONES DE LA PÁGINA DE INICIO (INDEX)
+   -------------------------------------------------------------------------- */
+.bienvenida h1 {
+    font-size: 1.5rem;
+    color: #4a2e1b;
+    margin: 40px 0 20px 0;
+}
+
+/* Carrusel automático de imágenes */
+.carrusel-botones {
+    position: relative;
+    max-width: 700px;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #000;
+}
+
+.carrusel-imagenes {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    animation: carruselAutomatico 13s infinite ease-in-out;
+}
+
+.carrusel-botones:hover .carrusel-imagenes {
+    animation-play-state: paused;
+}
+
+.slide {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide.slide-logo {
+    background-color: #fcf8f2;
+}
+
+.slide.slide-logo img {
+    object-fit: contain;
+    padding: 25px 0 60px 0;
+    box-sizing: border-box;
+}
+
+.carrusel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+@keyframes carruselAutomatico {
+
+    0%,
+    16% {
+        transform: translateX(0%);
+    }
+
+    20%,
+    36% {
+        transform: translateX(-20%);
+    }
+
+    40%,
+    56% {
+        transform: translateX(-40%);
+    }
+
+    60%,
+    76% {
+        transform: translateX(-60%);
+    }
+
+    80%,
+    96% {
+        transform: translateX(-80%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Accesos rápidos a categorías */
+.accesos-directos {
+    margin: 30px 0 50px 0;
+}
+
+.instruccion-busqueda {
+    font-size: 1.05rem;
+    color: #593122;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.contenedor-botones-busqueda {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.tarjeta-acceso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #4a2e1b;
+    width: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.tarjeta-acceso:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(140, 83, 51, 0.15);
+}
+
+.tarjeta-acceso .icono-producto {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-acceso:hover .icono-producto {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Reseña histórica */
+.resena-historica h2 {
+    font-size: 1.3rem;
+    color: #593122;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   4. CATÁLOGO DE PRODUCTOS (PRODUCTOS.HTML)
+   -------------------------------------------------------------------------- */
+.grupo-categoria {
+    margin-bottom: 35px;
+}
+
+.titulo-categoria {
+    color: #593122;
+    font-size: 1.25rem;
+    text-align: left;
+    border-bottom: 2px solid #FA8C3E;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+.grid-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-tarjeta {
+    background-color: #fcf8f2;
+    border: 1px solid rgba(255, 94, 0, 0.281);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.item-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(140, 83, 51, 0.15);
+}
+
+.img-producto {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.nombre-producto {
+    color: #4a2e1b;
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.precio-producto {
+    color: #8c5333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* Botón flotante de WhatsApp */
+.boton-flotante-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.boton-flotante-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.icono-flotante-wsp {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+/* --------------------------------------------------------------------------
+   5. PROMOCIONES Y COMBOS (PROMOCIONES.HTML)
+   -------------------------------------------------------------------------- */
+.subtitulo-promociones,
+.subtitulo-seccion {
+    color: #6d4c38;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.grid-promociones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.tarjeta-promocion {
+    background-color: #ffffff;
+    border: 2px solid #e67e22;
+    border-radius: 38px;
+    width: 205px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(140, 83, 51, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-promocion:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(230, 126, 34, 0.2);
+}
+
+.etiqueta-destacada {
+    background-color: #e67e22;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.contenedor-img-promo {
+    width: 110%;
+    height: 162px;
+    overflow: hidden;
+    background-color: #f5ebe1;
+}
+
+.img-promocion {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-promocion:hover .img-promocion {
+    transform: scale(1.05);
+}
+
+.contenido-promocion {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.nombre-promocion {
+    color: #593122;
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.descripcion-promo {
+    font-size: 0.92rem;
+    color: #4a2e1b;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    text-indent: 0;
+}
+
+.caja-precio-promo {
+    margin-bottom: 15px;
+}
+
+.precio-promocion {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.nota-adicional {
+    font-size: 0.82rem;
+    color: #7a5035;
+    margin: 0;
+    text-indent: 0;
+}
+
+.boton-solicitar-promo {
+    display: block;
+    text-align: center;
+    background-color: #e67e22;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+}
+
+.boton-solicitar-promo:hover {
+    background-color: #d35400;
+}
+
+/* --------------------------------------------------------------------------
+   6. CONTACTO Y UBICACIÓN (CONTACTO.HTML)
+   -------------------------------------------------------------------------- */
+.contenedor-foto-fachada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.img-fachada {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.datos-contacto {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.datos-contacto p {
+    margin: 8px 0;
+    text-indent: 0;
+}
+
+.columna-contacto-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.boton-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 280px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.boton-contacto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.boton-contacto.whatsapp {
+    background-color: #25d366;
+}
+
+.boton-contacto.whatsapp:hover {
+    background-color: #1eb956;
+}
+
+.boton-contacto.maps {
+    background-color: #34a853;
+}
+
+.boton-contacto.maps:hover {
+    background-color: #2b8b44;
+}
+
+.icono-btn-contacto {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.icono-btn-contacto.wsp {
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+.contenedor-mapa-miniatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.etiqueta-mapa {
+    font-size: 0.92rem;
+    color: #593122;
+    margin: 10px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.img-mapa-miniatura {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #8c5333;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.img-mapa-miniatura:hover {
+    transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   7. OPINIONES, TESTIMONIOS Y FORMULARIO (OPINIONES.HTML)
+   -------------------------------------------------------------------------- */
+.comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.tarjeta-comentario {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 22px;
+    background-color: #ffffff;
+    border: 1px solid rgba(140, 83, 51, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-comentario:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(140, 83, 51, 0.12);
+}
+
+.avatar-usuario {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e67e22;
+    flex-shrink: 0;
+}
+
+.contenido-comentario {
+    flex-grow: 1;
+}
+
+.encabezado-comentario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.encabezado-comentario h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #4a2e1b;
+}
+
+.badge-producto-mencionado {
+    background-color: #fceddf;
+    color: #d35400;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 12px;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+}
+
+.calificacion {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.contenido-comentario p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a2e1b;
+    text-indent: 0;
+}
+
+/* Aviso de Privacidad */
+.aviso-privacidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #fff9e6;
+    border: 1px solid #ffd166;
+    border-left: 5px solid #f39c12;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 20px auto 25px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.icono-candado {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.aviso-privacidad p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #634316;
+    line-height: 1.4;
+    text-indent: 0;
+}
+
+/* Formulario */
+.formulario-opinion {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.campo-grupo {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.campo-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #593122;
+    font-size: 0.95rem;
+}
+
+.campo-grupo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #c9b09a;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fffdfa;
+}
+
+.campo-grupo textarea:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+}
+
+.boton-enviar-opinion {
+    display: inline-block;
+    background-color: #e67e22;
+    color: #ffffff;
+    padding: 10px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-enviar-opinion:hover {
+    background-color: #d35400;
+    transform: translateY(-1px);
+}
+
+.boton-enviar-opinion:active {
+    transform: translateY(0);
+}
+
+.mensaje-exito {
+    display: none;
+    margin: 20px auto 0 auto;
+    max-width: 520px;
+    padding: 20px 24px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mensaje-exito h3 {
+    margin: 6px 0;
+    color: #155724;
+    font-size: 1.15rem;
+}
+
+.mensaje-exito p {
+    margin: 4px 0 0 0;
+    font-size: 0.95rem;
+    color: #1e6b30;
+    text-indent: 0;
+}
+
+.icono-exito {
+    font-size: 2rem;
+    margin: 0 !important;
+}
+
+/* Activación del mensaje de éxito con CSS */
+.formulario-opinion:has(.boton-enviar-opinion:focus)~.mensaje-exito,
+.formulario-opinion:has(.boton-enviar-opinion:active)~.mensaje-exito {
+    display: block;
+    animation: fadeInMensaje 0.4s ease forwards;
+}
+
+@keyframes fadeInMensaje {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. PIE DE PÁGINA (FOOTER)
+   -------------------------------------------------------------------------- */
+.pie-pagina {
+    background-color: #8c5333;
+    color: #fcf8f2;
+    padding: 10px 50px 8px 50px;
+    margin-top: 25px;
+    font-size: 0.78rem;
+    box-sizing: border-box;
+}
+
+.contenedor-boton-arriba {
+    text-align: right;
+    margin: 3px;
+}
+
+.boton-ir-arriba {
+    display: inline-block;
+    background-color: #e67e22;
+    color: #ffffff;
+    margin-left: -100px;
+    padding: 2px 12px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.72rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-ir-arriba:hover {
+    background-color: #d35400;
+    transform: translateY(-1px);
+}
+
+.fila-superior-footer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.columna-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.columna-footer h3 {
+    font-size: 0.8rem;
+    margin: 0 0 3px 0;
+    color: #FFDB85;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.columna-footer p {
+    margin: 1px 0;
+    opacity: 0.9;
+    font-size: 0.76rem;
+    line-height: 1.25;
+}
+
+/* Columna Institución */
+.columna-footer.universidad {
+    text-align: left;
+}
+
+.bloque-institucion-flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+
+.logo-uni-img {
+    height: 50px;
+    width: 70px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.texto-institucion h3 {
+    font-size: 0.8rem;
+    margin: 0 0 2px 0;
+    color: #FFDB85;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#texto2uni {
+    margin-top: 1px;
+    text-align: center;
+}
+
+
+.texto-institucion p {
+    margin-top: 15px;
+    opacity: 0.9;
+    font-size: 0.76rem;
+    line-height: 1.25;
+}
+
+/* Columna Navegación del Footer */
+.columna-footer.secciones {
+    text-align: left;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 1px;
+}
+
+.footer-nav a {
+    color: #fcf8f2;
+    text-decoration: none;
+    font-size: 0.76rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    width: fit-content;
+    line-height: 1.25;
+}
+
+.footer-nav a:hover {
+    color: #FA8C3E;
+    transform: translateX(3px);
+}
+
+/* Indicador y bloqueo automático de la sección actual en el footer */
+#pagina-inicio .footer-inicio,
+#pagina-productos .footer-productos,
+#pagina-promociones .footer-promociones,
+#pagina-contacto .footer-contacto,
+#pagina-opiniones .footer-opiniones {
+    pointer-events: none;
+    cursor: default;
+    color: #FFDB85;
+    font-weight: bold;
+    opacity: 0.9;
+    transform: none;
+}
+
+#pagina-inicio .footer-inicio::before,
+#pagina-productos .footer-productos::before,
+#pagina-promociones .footer-promociones::before,
+#pagina-contacto .footer-contacto::before,
+#pagina-opiniones .footer-opiniones::before {
+    content: "• ";
+    color: #FFDB85;
+}
+
+/* Columna Desarrolladores y Tutores */
+.columna-footer.desarrolladores-tutores {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.bloque-desarrolladores,
+.bloque-tutores {
+    margin-bottom: 0;
+}
+
+.lista-desarrolladores,
+.lista-tutores {
+    list-style-type: disc;
+    padding-left: 16px;
+    margin: 1px 0 0 0;
+    font-size: 0.76rem;
+}
+
+.lista-desarrolladores li,
+.lista-tutores li {
+    margin-bottom: 1px;
+    line-height: 1.25;
+}
+
+.lista-tutores strong {
+    color: #FFDB85;
+    font-weight: 600;
+}
+
+/* Derechos de autor */
+.fila-inferior-footer.derechos {
+    text-align: center;
+    margin-top: 6px;
+    border-top: 1px solid rgba(252, 248, 242, 0.15);
+    padding-top: 4px;
+}
+
+.fila-inferior-footer.derechos p {
+    margin: 0;
+    opacity: 0.75;
+    font-size: 0.7rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. ADAPTABILIDAD RESPONSIVE (MÓVILES Y TABLETS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    /* Header y menú hamburguesa */
+    .header-navegacion {
+        padding: 10px 16px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+
+    .logo-img {
+        height: 48px;
+    }
+
+    .texto-inversiones {
+        margin: 0 auto 0 10px;
+        text-align: left;
+    }
+
+    .texto-inversiones h3 {
+        font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+        white-space: normal;
+    }
+
+    .menu-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 22px;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .linea-hamburguesa {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #fcf8f2;
+        border-radius: 3px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #menu-check:checked~.menu-hamburguesa .linea-hamburguesa:nth-child(1) {
+        transform: translateY(9.5px) rotate(45deg);
+    }
+
+    #menu-check:checked~.menu-hamburguesa .linea-hamburguesa:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-check:checked~.menu-hamburguesa .linea-hamburguesa:nth-child(3) {
+        transform: translateY(-9.5px) rotate(-45deg);
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #723e24;
+        margin-top: 12px;
+        padding: 6px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    #menu-check:checked~.menu {
+        display: flex;
+        animation: desplegarMenu 0.25s ease-out forwards;
+    }
+
+    .menu a {
+        margin: 0;
+        padding: 12px 16px;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+        display: block;
+    }
+
+    .menu a:last-child {
+        border-bottom: none;
+    }
+
+    .menu a::after {
+        display: none;
+    }
+
+    /* Contenedor principal y tarjetas */
+    .contenedor-principal {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    #textobienvenida {
+        font-size: 1.25rem;
+        margin-top: 1px;
+    }
+
+    .resena-historica h2 {
+        font-size: 1.10rem;
+        color: #593122;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+    .bienvenida h1 {
+        font-size: 1.15rem;
+        margin: 20px 0 15px 0;
+        line-height: 1.20;
+    }
+
+    .contenedor-tarjeta,
+    .bloque-texto-resena {
+        padding: 18px 14px;
+        border-radius: 8px;
+    }
+
+    /* Carrusel móvil */
+    .carrusel-botones {
+        max-width: 100%;
+        height: 240px;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+
+    .slide.slide-logo img {
+        padding: 10px 0 40px 0;
+    }
+
+    .carrusel-caption {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    /* Accesos rápidos móvil */
+    .contenedor-botones-busqueda {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .tarjeta-acceso {
+        padding: 12px 8px;
+        width: 80px;
+        flex: 1 1 80px;
+        max-width: 105px;
+    }
+
+    .tarjeta-acceso .icono-producto {
+        font-size: 2rem;
+        margin-bottom: 4px;
+    }
+
+    .tarjeta-acceso .texto-acceso {
+        font-size: 0.82rem;
+    }
+
+    /* Catálogo móvil */
+    .grid-catalogo {
+        gap: 15px;
+    }
+
+    .item-tarjeta {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Promociones móvil */
+    .grid-promociones {
+        gap: 20px;
+    }
+
+    .tarjeta-promocion {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 24px;
+    }
+
+    .contenedor-img-promo {
+        width: 100%;
+        height: 175px;
+    }
+
+    /* Contacto móvil */
+    .boton-contacto {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .img-fachada {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .img-mapa-miniatura {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Opiniones e interacción móvil */
+    .tarjeta-comentario {
+        padding: 14px 15px;
+        gap: 12px;
+    }
+
+    .avatar-usuario {
+        width: 48px;
+        height: 48px;
+    }
+
+    .encabezado-comentario h3 {
+        font-size: 1rem;
+    }
+
+    .badge-producto-mencionado {
+        font-size: 0.75rem;
+    }
+
+    .aviso-privacidad {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .formulario-opinion textarea {
+        font-size: 0.95rem;
+    }
+
+    .boton-enviar-opinion {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Botón flotante WhatsApp móvil */
+    .boton-flotante-whatsapp {
+        position: fixed;
+        bottom: 18px;
+        right: auto;
+        left: 18px;
+        width: 52px;
+        height: 52px;
+    }
+
+    /* Pie de página móvil */
+    .pie-pagina {
+        padding: 16px 14px 8px 14px;
+    }
+
+    .fila-superior-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+
+    .contenedor-boton-arriba {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .boton-ir-arriba {
+        display: inline-block;
+        background-color: #e67e22;
+        color: #ffffff;
+        margin-left: auto;
+        padding: 2px 12px;
+        text-decoration: none;
+        border-radius: 3px;
+        font-weight: 600;
+        font-size: 0.72rem;
+    }
+
+
+
+
+    .columna-footer.universidad,
+    .columna-footer.secciones {
+        text-align: center;
+        align-items: center;
+    }
+
+    .bloque-institucion-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .logo-uni-img {
+        width: 70px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .texto-institucion {
+        text-align: center;
+    }
+
+    .footer-nav {
+        align-items: center;
+    }
+
+    .columna-footer.desarrolladores-tutores {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .lista-desarrolladores,
+    .lista-tutores {
+        text-align: left;
+        display: inline-block;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. ANIMACIONES GLOBALES
+   -------------------------------------------------------------------------- */
+@keyframes desplegarMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carrusel-botones,
+.bienvenida,
+.accesos-directos,
+.resena-historica,
+.contenedor-tarjeta,
+.bloque-texto-resena {
+    opacity: 0.1;
+    animation: subirSeccion 0.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+.carrusel-botones {
+    animation-delay: 0.05s;
+}
+
+.bienvenida {
+    animation-delay: 0.1s;
+}
+
+.accesos-directos {
+    animation-delay: 0.15s;
+}
+
+.resena-historica,
+.contenedor-tarjeta,
+.bloque-texto-resena {
+    animation-delay: 0.2s;
+}
+
+@keyframes aparecerPantalla {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes subirSeccion {
+    from {
+        opacity: 0.1;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

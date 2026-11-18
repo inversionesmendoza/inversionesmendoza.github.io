@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#8c5333">
+    <title>Inversiones Mendoza Pan de Dios</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body id="pagina-inicio">
+
+    <div id="arriba"></div>
+    <!-- Barra de navegación compartida en todo el sitio web -->
+    <header class="header-navegacion">
+        <div class="contenedor-logo">
+            <img src="imagenes/logo.png" alt="Logo" class="logo-img">
+        </div>
+        <div class="texto-inversiones">
+            <h3>Inversiones Mendoza</h3>
+        </div>
+
+        <input type="checkbox" id="menu-check" class="menu-check">
+        <label for="menu-check" class="menu-hamburguesa" aria-label="Abrir menú de navegación">
+            <span class="linea-hamburguesa"></span>
+            <span class="linea-hamburguesa"></span>
+            <span class="linea-hamburguesa"></span>
+        </label>
+
+        <nav class="menu">
+            <a href="index.html" class="nav-inicio">Inicio</a>
+            <a href="productos.html" class="nav-productos">Productos</a>
+            <a href="promociones.html" class="nav-promociones">Promociones</a>
+            <a href="contacto.html" class="nav-contacto">Contacto</a>
+            <a href="opiniones.html" class="nav-opiniones">Interaccion</a>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <!-- Carrusel automático que rota imágenes sin JavaScript -->
+        <section class="carrusel-botones">
+            <div class="carrusel-imagenes">
+                <div class="slide slide-logo">
+                    <img src="imagenes/logo.png" alt="Logo de la panaderia">
+                    <div class="carrusel-caption">INVERSIONES MENDOZA PAN DE DIOS</div>
+                </div>
+                <div class="slide">
+                    <img src="imagenes/pan_salado1.jpg" alt="Pan de Tunja Tradicional">
+                    <div class="carrusel-caption">Panes Salados</div>
+                </div>
+                <div class="slide">
+                    <img src="imagenes/pan_dulce1.jpg" alt="Variedad de Panes Dulces">
+                    <div class="carrusel-caption">Variedad de Panes Dulces</div>
+                </div>
+                <div class="slide">
+                    <img src="imagenes/charcuteria1.jpg" alt="Área de Charcutería y Quesos">
+                    <div class="carrusel-caption">Área de Charcutería y Quesos</div>
+                </div>
+                <div class="slide">
+                    <img src="imagenes/fachada_panaderia.jpg" alt="Inversiones Mendoza Pan de Dios">
+                    <div class="carrusel-caption">Bienvenidos a nuestra panadería</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bienvenida">
+            <h1>¡Ven y descubre lo que hacemos con pasión!</h1>
+            <h1 id="textobienvenida"><strong>Inversiones Mendoza Pan de Dios</strong></h1>
+        </section>
+
+        <!-- Accesos rápidos con anclas para saltar directo a la sección deseada en productos -->
+        <section class="accesos-directos">
+            <p class="instruccion-busqueda">Elije lo que te gusta y llevate lo mejor: </p>
+            <div class="contenedor-botones-busqueda">
+                <a href="productos.html#seccion-panes" class="tarjeta-acceso">
+                    <span class="icono-producto">🥖</span>
+                    <span class="texto-acceso">Panes</span>
+                </a>
+                <a href="productos.html#seccion-quesos" class="tarjeta-acceso">
+                    <span class="icono-producto">🧀</span>
+                    <span class="texto-acceso">Quesos</span>
+                </a>
+                <a href="productos.html#seccion-charcuteria" class="tarjeta-acceso">
+                    <span class="icono-producto">🥓</span>
+                    <span class="texto-acceso">Charcutería</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Reseña e historia de la panadería -->
+        <section class="resena-historica" id="resena">
+            <h2><strong>Nuestras raíces:</strong></h2>
+            <h2>El camino que nos trajo hasta acá</h2>
+
+            <div class="bloque-texto-resena">
+                <p>Inversiones Mendoza Pan de Dios tuvo sus orígenes en el año 2022 como una iniciativa de
+                    emprendimiento artesanal orientada a la elaboración y comercialización de productos de panadería y
+                    charcutería. Tras una etapa de crecimiento y consolidación en el sector, la empresa alcanzó su
+                    formalización institucional en el año 2024 bajo la dirección de Miguel Mendoza, estableciéndose como
+                    un punto de referencia comercial en la Urbanización El Estadium, municipio Jiménez.</p>
+
+                <p>La organización opera mediante turnos continuos de producción para garantizar la disponibilidad
+                    constante de mercancía recién horneada, atendiendo tanto la venta directa al detal como la atención
+                    a pequeños comerciantes y pedidos especiales por encargo.</p>
+
+                <p>Su modelo de gestión se orienta hacia el abastecimiento de productos alimenticios de alta calidad a
+                    precios accesibles, proyectando a mediano plazo la expansión de la marca hacia nuevas sucursales en
+                    el municipio Jiménez a través del fortalecimiento de su estructura operativa e identidad
+                    corporativa.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página con créditos del equipo, navegación y la UPTAEB -->
+    <footer class="pie-pagina">
+
+        <div class="fila-superior-footer">
+            <!-- Izquierda: Institución con Logo al lado -->
+            <div class="columna-footer universidad">
+                <div class="bloque-institucion-flex">
+                    <img src="imagenes/logo_universidad.png" alt="Logo UPTAEB" class="logo-uni-img">
+
+                    <div class="texto-institucion">
+                        <p>Universidad Politécnica Territorial</p>
+                        <p id="texto2uni">Andrés Eloy Blanco</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centro: Secciones una arriba de la otra -->
+            <div class="columna-footer secciones">
+                <h3>Secciones:</h3>
+                <nav class="footer-nav">
+                    <a href="index.html" class="footer-inicio">Inicio</a>
+                    <a href="productos.html" class="footer-productos">Productos</a>
+                    <a href="promociones.html" class="footer-promociones">Promociones</a>
+                    <a href="contacto.html" class="footer-contacto">Contacto</a>
+                    <a href="opiniones.html" class="footer-opiniones">Interacción</a>
+                </nav>
+            </div>
+
+            <!-- Derecha: Desarrolladores con UL y Tutores alineados al mismo margen -->
+            <div class="columna-footer desarrolladores-tutores">
+                <div class="bloque-desarrolladores">
+                    <h3>Desarrollado por:</h3>
+                    <ul class="lista-desarrolladores">
+                        <li>Joswar Gil</li>
+                        <li>Junieudy Jimenez</li>
+                        <li>Isaac Garcia</li>
+                        <li>Jonaiker Peña</li>
+                    </ul>
+                </div>
+                <div class="bloque-tutores">
+                    <h3>Tutores:</h3>
+                    <ul class="lista-tutores">
+                        <li><strong>Tutor Académico:</strong> Ing. Dionel Linarez</li>
+                        <li><strong>Tutor Asesor:</strong> Ing. Yenny Garcia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila-inferior-footer derechos">
+            <p>&copy; 2026 Panadería "Inversiones Mendoza Pan de Dios". Todos los derechos reservados.</p>
+        </div>
+        <div class="contenedor-boton-arriba">
+            <a href="#arriba" class="boton-ir-arriba">⬆ Volver arriba</a>
+        </div>
+
+    </footer>
+</body>
+
+</html>
