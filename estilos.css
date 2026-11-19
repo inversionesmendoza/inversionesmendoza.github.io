@@ -903,6 +903,7 @@ body {
     border-radius: 6px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    scroll-margin-top: 100px;
 }
 
 .mensaje-exito h3 {
@@ -925,7 +926,8 @@ body {
 
 /* Activación del mensaje de éxito con CSS */
 .formulario-opinion:has(.boton-enviar-opinion:focus)~.mensaje-exito,
-.formulario-opinion:has(.boton-enviar-opinion:active)~.mensaje-exito {
+.formulario-opinion:has(.boton-enviar-opinion:active)~.mensaje-exito,
+#mensaje-exito:target {
     display: block;
     animation: fadeInMensaje 0.4s ease forwards;
 }
