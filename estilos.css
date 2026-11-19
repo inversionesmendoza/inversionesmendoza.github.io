@@ -344,11 +344,11 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-    padding: 22px 20px;
+    padding: 22px 18px;
     border-radius: 12px;
     color: #4a2e1b;
-    width: 140px;
-    min-height: 140px;
+    width: 200px;
+    min-height: 160px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
     cursor: default;
@@ -380,6 +380,7 @@ body {
     font-size: 0.90rem;
     color: #4a2e1b;
     text-align: center;
+    margin: 8px 0 0 0;
 }
 
 
