@@ -335,7 +335,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .tarjeta-valor {
@@ -1029,6 +1029,7 @@ body {
     flex-shrink: 0;
     border-radius: 10px;
     margin-top: 10px;
+    background-color: white;
 }
 
 .texto-institucion h3 {
