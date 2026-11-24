@@ -300,6 +300,22 @@ body {
     box-shadow: 0 12px 20px rgba(140, 83, 51, 0.15);
 }
 
+.img-icon {
+    width: 70px;
+    height: 70px;
+}
+
+
+.icono-img-productos {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    object-fit: contain;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+
 .tarjeta-acceso .icono-producto {
     font-size: 2.8rem;
     margin-bottom: 10px;
@@ -394,6 +410,8 @@ body {
 }
 
 .titulo-categoria {
+    display: flex;
+    align-items: center;
     color: #593122;
     font-size: 1.25rem;
     text-align: left;
@@ -486,7 +504,7 @@ body {
 .subtitulo-promociones,
 .subtitulo-seccion {
     color: #6d4c38;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 25px;
     text-align: center;
 }
@@ -962,21 +980,34 @@ body {
 }
 
 .boton-ir-arriba {
-    display: inline-block;
-    background-color: #e67e22;
-    color: #ffffff;
-    margin-left: -100px;
-    padding: 2px 12px;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    background-color: #d35400;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: transform 0.4s ease, box-shadow 0.5s ease;
     text-decoration: none;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 0.72rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    overflow: hidden;
+}
+
+.img-icon-flecha {
+    width: 20px;
+    height: 20px;
+
 }
 
 .boton-ir-arriba:hover {
-    background-color: #d35400;
-    transform: translateY(-1px);
+    background-color: #f06c15;
+    transform: translateY(-4px);
 }
 
 .fila-superior-footer {
@@ -1010,6 +1041,10 @@ body {
 
 /* Columna Institución */
 .columna-footer.universidad {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     text-align: left;
 }
 
@@ -1102,13 +1137,22 @@ body {
     color: #FFDB85;
 }
 
-/* Columna Desarrolladores y Tutores */
-.columna-footer.desarrolladores-tutores {
-    text-align: left;
+/* Columna Desarrolladores */
+.columna-footer.desarrolladores {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+/* Columna Tutores */
+.columna-footer.tutores {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
 }
 
 .bloque-desarrolladores,
@@ -1485,24 +1529,31 @@ body {
     }
 
     .boton-ir-arriba {
-        display: inline-block;
-        background-color: #e67e22;
-        color: #ffffff;
-        margin-left: auto;
-        padding: 2px 12px;
-        text-decoration: none;
-        border-radius: 3px;
-        font-weight: 600;
-        font-size: 0.72rem;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #d35400;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
     }
 
 
 
 
     .columna-footer.universidad,
-    .columna-footer.secciones {
+    .columna-footer.desarrolladores,
+    .columna-footer.tutores {
         text-align: center;
         align-items: center;
+        flex: auto;
     }
 
     .bloque-institucion-flex {
@@ -1525,13 +1576,6 @@ body {
 
     .footer-nav {
         align-items: center;
-    }
-
-    .columna-footer.desarrolladores-tutores {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
     }
 
     .lista-desarrolladores,
